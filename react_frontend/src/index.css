@@ -316,3 +316,89 @@ h1 {
         font-size: 12px;
     }
 }
+
+
+/* Navbar */
+.navSection {
+    width: 100%;
+    min-height: 75px;
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.15);
+
+    box-sizing: border-box;
+}
+
+/* Logo / Title */
+.title h1 {
+    margin: 0;
+    padding: 0;
+
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Authentication section */
+.auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Register and Login */
+.auth div {
+    padding: 10px 22px;
+
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.auth div:hover {
+    color: #5b35d5;
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .navSection {
+        min-height: 65px;
+        padding: 0 18px;
+    }
+
+    .title h1 {
+        font-size: 21px;
+    }
+
+    .auth {
+        gap: 8px;
+    }
+
+    .auth div {
+        padding: 8px 13px;
+        font-size: 13px;
+    }
+}

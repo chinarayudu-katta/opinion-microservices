@@ -4,10 +4,12 @@ import {Routes, Route} from "react-router-dom";
 import UserRegister from './pages/UserRegister';
 import UserLogin from './pages/UserLogin';
 import IndTopic from './pages/IndTopic';
+import Navbar from './components/Navbar';
 
 const App = () => {
   return (
     <div>
+      <Navbar />
     <Routes>
       <Route path="/" element={<ShowTopics />} />
       <Route path="/user/register" element={<UserRegister />} />

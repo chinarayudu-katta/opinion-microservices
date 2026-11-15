@@ -11,7 +11,7 @@ export const showTopicUrl = "http://localhost:8000/topic/show-topics"
 export const singleTopicUrl = "http://localhost:8000/topic/show-topic"
 
 // post comment by user (post method)
-export const postCommUrl = "http://localhost:8000/opinion/post-comm"
+export const postCommUrl = "http://localhost:8000/opinion/post-comment"
 
 // show comment with topicId (get method, token required)
 export const showCommentUrl = "http://localhost:8000/opinion/show-comments" //{topicId}

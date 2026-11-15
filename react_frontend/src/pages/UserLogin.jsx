@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { userLoginUrl } from '../api_url';
 import axios from 'axios';
 import "./UserLogin.css";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const UserLogin = () => {
   const [email, setEmail] = useState("");
@@ -28,21 +28,50 @@ const UserLogin = () => {
   }
   return (
     <div className="loginPage">
+      <div className="loginCard">
+        <div className="loginHeader">
+                    <h1>Welcome Back!</h1>
+                    <p>Login to your Opinion Hub account</p>
+        </div>
       <form onSubmit={userHandler} className="loginForm">
-        <div className="">
         <div className="loginField">
-          <h3>Email</h3>
-          <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} />
+          <label htmlFor='email'>Email</label>
+          <input
+              id="email" 
+              type="email"
+              placeholder="Enter your email"
+              value={email} 
+              onChange={(e)=> setEmail(e.target.value)}
+              required
+              />
         </div>
 
         <div className="loginField">
-          <h3>Password</h3>
-          <input type="password" value={password} onChange={(e)=> setPassword(e.target.value)} />
-          <button type="submit">User Login</button>
+          <label htmlFor="password">Password</label>
+          <input
+              id="password" 
+              type="password"
+              placeholder="Enter your password"
+              value={password} 
+              onChange={(e)=> setPassword(e.target.value)}
+              required
+              />
           </div>
-        
-        </div>
+          <button type="submit" className="loginButton">User Login</button>
         </form>
+
+        <div className="registerPrompt">
+                    <p>Don't have an account?</p>
+                    <Link to="/user/register" className="registerLink">
+                        Create Account
+                    </Link>
+              </div>
+
+                <Link to="/" className="backHome">
+                    Back to Home
+                </Link>
+
+        </div>
     </div>
   )
 }

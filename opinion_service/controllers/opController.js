@@ -24,3 +24,21 @@ exports.createOp = async(req, res) => {
         })
     }
 }
+
+exports.getTopicOpinions = async (req, res) => {
+    try {
+        const { topicId } = req.params;
+
+        const result = await Opinion.find({ topicId })
+
+        return res.status(200).json({
+            result
+        });
+
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({
+            msg: "Something went wrong"
+        });
+    }
+};

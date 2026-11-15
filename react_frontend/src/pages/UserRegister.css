@@ -1,0 +1,131 @@
+
+/* Registration page */
+.registerPage {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+    box-sizing: border-box;
+
+    background: #f8faff;
+}
+
+/* Registration card */
+.registerForm {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 35px;
+
+    background: linear-gradient(145deg, #ffffff, #f8faff);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.07);
+
+    box-sizing: border-box;
+}
+
+/* Heading */
+.registerForm h2 {
+    margin: 0 0 8px;
+
+    color: #1e293b;
+    font-size: 26px;
+    font-weight: 750;
+    text-align: center;
+}
+
+/* Subtitle */
+.registerSubtitle {
+    margin: 0 0 28px;
+
+    color: #64748b;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Input fields */
+.registerField {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.registerField label {
+    color: #334155;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+/* Inputs */
+.registerField input {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 13px;
+
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 14px;
+
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    outline: none;
+    box-sizing: border-box;
+
+    transition: all 0.2s ease;
+}
+
+/* Input focus */
+.registerField input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* Register button */
+.registerButton {
+    width: 100%;
+    min-height: 47px;
+
+    margin-top: 5px;
+
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 650;
+
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border: none;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+/* Button hover */
+.registerButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(79, 70, 229, 0.25);
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .registerForm {
+        padding: 25px 20px;
+    }
+
+    .registerForm h2 {
+        font-size: 23px;
+    }
+}

@@ -24,12 +24,12 @@ const ShowTopics = () => {
     <div className='topicSection'>
       {topics.map((item)=> {
         return (
-          <div className='topicRecord' key={item.id}>
+          <div className='topicRecord'>
             <h2>{item.title}</h2>
             <hr />
             <p>{item.desc}</p>
             <div className='seeOps'>
-              <Link to="/user/login">
+              <Link to={`/single/topic/${item._id}`}>
               <button>Post your opinion</button>
               </Link>
               <Link>
