@@ -381,7 +381,10 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
-
+.auth a {
+    text-decoration: none;
+    color: inherit;
+}
 /* Mobile responsive */
 @media (max-width: 600px) {
     .navSection {

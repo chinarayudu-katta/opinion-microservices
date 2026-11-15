@@ -7,22 +7,34 @@ import { Link, useNavigate } from 'react-router-dom';
 const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const userHandler = async(e) => {
     e.preventDefault();
     try{
-      const response = await axios.post(userLoginUrl, {email, password});
-      console.log("response", response)
+      setLoading(true)
+      const response = await axios.post(userLoginUrl, 
+        {
+          email, password
+        }
+      );
+      
       if(response.status === 201){
+        localStorage.setItem("user_token", response.data.token)
+        localStorage.setItem("userName", response.data.record.name)
+        localStorage.setItem("userId", response.data.record._id)
+
+        window.dispatchEvent(new Event("authChange"));
+
         alert("Login successfully");
         navigate("/")
       }
-        localStorage.setItem("user_token", response.data.token)
-        localStorage.setItem("username", response.data.record.name)
-        localStorage.setItem("userId", response.data.record._id)
     }catch(error){
       alert(error.response?.data?.message)
+    }finally{
+      setLoading(false)
     }
 
   }
@@ -57,7 +69,7 @@ const UserLogin = () => {
               required
               />
           </div>
-          <button type="submit" className="loginButton">User Login</button>
+          <button type="submit" className="loginButton" disabled={loading}>{loading ? "Logging in..." : "User Login"}</button>
         </form>
 
         <div className="registerPrompt">
