@@ -8,7 +8,11 @@ dotEnv.config()
 
 const PORT = process.env.PORT || 8000;
 
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 // auth service
 app.use(createProxyMiddleware({
@@ -20,10 +24,20 @@ app.use(createProxyMiddleware({
 
 // topic service
 app.use(createProxyMiddleware({
-    pathFilter: (path) => 
+    pathFilter: (path) =>
         path.startsWith("/topic"),
+
     target: process.env.TOPIC_SERVICE_URL,
-    changeOrigin: true    
+    changeOrigin: true,
+
+    on: {
+        proxyRes: (proxyRes) => {
+            proxyRes.headers["access-control-allow-origin"] =
+                "http://localhost:5173";
+
+            delete proxyRes.headers["access-control-allow-credentials"];
+        }
+    }
 }));
 
 // opinion service
