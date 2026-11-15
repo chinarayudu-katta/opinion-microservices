@@ -7,6 +7,7 @@ const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 8002;
 app.use(express.json());
+
 app.use("/topic", topicRoutes)
 
 mogoose.connect(process.env.MONGO_URI)
