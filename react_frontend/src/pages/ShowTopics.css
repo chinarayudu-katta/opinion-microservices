@@ -1,0 +1,149 @@
+
+/* Main topics section */
+.topicSection {
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 20px 24px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* Individual topic card */
+.topicRecord {  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+    min-height: auto;
+    /* padding: 22px; */
+
+    background: linear-gradient(145deg, #ffffff, #f8faff);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Card hover */
+.topicRecord:hover {
+    transform: translateY(-5px);
+    border-color: #a5b4fc;
+    box-shadow: 0 15px 32px rgba(79, 70, 229, 0.12);
+}
+
+/* Topic title */
+.topicRecord h2 {
+    width: 100%;
+    margin: 0 0 14px;
+
+    color: #1e293b;
+    font-size: 19px;
+    font-weight: 750;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+/* Topic description */
+.topicRecord p {
+    margin: 0 0 18px;
+
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+    /* flex-grow: 1; */
+}
+
+/* Action buttons container */
+.seeOps {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+
+    width: 100%;
+    /* margin-top: auto; */
+}
+
+/* Buttons */
+.seeOps button {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    min-height: 40px;
+    padding: 9px 8px;
+
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border: none;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* Button hover */
+.seeOps button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(79, 70, 229, 0.25);
+}
+
+/* Keyboard accessibility */
+.seeOps button:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 3px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .topicSection {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .topicRecord {
+        padding: 18px;
+    }
+
+    .topicRecord h2 {
+        font-size: 17px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    .topicSection {
+        grid-template-columns: 1fr;
+        margin: 20px auto;
+        padding: 14px;
+        gap: 16px;
+    }
+
+    .topicRecord {
+        padding: 20px;
+    }
+
+    .topicRecord h2 {
+        font-size: 19px;
+    }
+
+    .seeOps button {
+        font-size: 12px;
+    }
+}

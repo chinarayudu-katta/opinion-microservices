@@ -42,7 +42,7 @@ exports.userLogin = async(req, res) => {
                 audience: "op-share-api"
             }
         )
-        return res.status(201).json({message: "admin login success", token})
+        return res.status(201).json({message: "admin login success", token, record})
     }catch (error){
         res.status(500).json({ message: "Something went wrong" });
     }
