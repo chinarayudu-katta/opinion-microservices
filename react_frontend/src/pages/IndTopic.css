@@ -1,0 +1,159 @@
+
+.indTopicPage {
+  min-height: calc(100vh - 80px);
+  padding: 40px 20px;
+  background: #f8f9fc;
+}
+
+.indTopicContainer {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Comments section */
+.commentsSection {
+  margin-bottom: 35px;
+}
+
+.commentsHeading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #25243a;
+  margin-bottom: 22px;
+}
+
+.commentCard {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #e8e8f0;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.commentCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+}
+
+.commentUser {
+  font-size: 16px;
+  font-weight: 700;
+  color: #5b3cc4;
+  margin: 0 0 10px;
+}
+
+.commentMessage {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b4b5c;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.noComments {
+  background: #ffffff;
+  border: 1px dashed #c9c5dc;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  color: #77748a;
+  font-size: 15px;
+}
+
+/* Comment form */
+.commentFormCard {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #e8e8f0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+.formHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #25243a;
+  margin: 0 0 24px;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentField {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.commentField label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #414052;
+}
+
+.commentField input,
+.commentField textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #dcdce8;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  font-family: inherit;
+  color: #29283a;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.commentField input:focus,
+.commentField textarea:focus {
+  border-color: #7048d8;
+  box-shadow: 0 0 0 3px rgba(112, 72, 216, 0.12);
+}
+
+.commentField textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.postCommentButton {
+  align-self: flex-start;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #5b3cc4, #8053e8);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.postCommentButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(91, 60, 196, 0.25);
+}
+
+@media (max-width: 600px) {
+  .indTopicPage {
+    padding: 25px 15px;
+  }
+
+  .commentFormCard {
+    padding: 20px;
+  }
+
+  .commentsHeading {
+    font-size: 21px;
+  }
+
+  .postCommentButton {
+    width: 100%;
+  }
+}

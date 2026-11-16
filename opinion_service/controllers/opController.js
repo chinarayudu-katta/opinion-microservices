@@ -1,4 +1,7 @@
 const Opinion = require('../models/Opinion');
+const {producer} = require("../config/kafka");
+
+const axios = require("axios");
 
 
 exports.createOp = async(req, res) => {
@@ -6,12 +9,25 @@ exports.createOp = async(req, res) => {
     const {topicId, userName, message} = req.body;
     const userId = req.user.userId;
 
+    await axios.get(`http://localhost:8002/topic/show-topic/${topicId}`);
+
     const record = await Opinion.create({
         topicId,
         userId,
         userName,
         message
-    })
+    });
+
+    await producer.send({
+        topic: "opinion.created",
+        messages: [
+            {
+                key: String(record._id),
+                value: JSON.stringify(record)
+            }
+        ]
+    });
+
     return res.status(201).json({
         message: "opinion or comment posted",
         data: record

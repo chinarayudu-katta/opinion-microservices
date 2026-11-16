@@ -3,10 +3,13 @@ const dotenv = require('dotenv');
 const mogoose = require('mongoose');
 const opRoute = require("./routes/opRoutes")
 const app = express();
+const {connectProducer} = require("./config/kafka");
 
 dotenv.config();
 const PORT = process.env.PORT || 8003;
 app.use(express.json());
+
+connectProducer();
 
 mogoose.connect(process.env.MONGO_URI)
 .then(()=> {

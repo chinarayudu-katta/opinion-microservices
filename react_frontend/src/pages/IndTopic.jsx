@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { postCommUrl } from '../api_url';
 import { showCommentUrl } from '../api_url';
 import axios from 'axios';
+import "./IndTopic.css";
 
 const IndTopic = () => {
     const {id} = useParams();
@@ -48,30 +49,62 @@ const IndTopic = () => {
         topicHandler()
     }, [])
     return (
-    <div>
-        <div className=''>
-        {showComm.map((comment)=> {
-            return (
-                <div className=''>
-                    <h3>{comment.userName}</h3>
-                    <div className=''>Title: {comment.message}</div>
-                </div>
-            )
-        })}
-        </div>
-      <form onSubmit={commHandler}>
-        <div className="">
-            <h3>username</h3>
-            <input type="text" value={userName} onChange={(e)=> setUserName(e.target.value)} />
-        </div>
+    <div className="indTopicPage">
+    <div className="indTopicContainer">
 
-        <div className="">
-            <h3>Message</h3>
-            <textarea type="text" value={message} onChange={(e)=> setMessage(e.target.value)}></textarea>
-        </div>
-        <button type="submit">Post Comment</button>
-      </form>
+      {/* Comments Section */}
+      <div className="commentsSection">
+        <h2 className="commentsHeading">
+          Community Opinions ({showComm.length})
+        </h2>
+
+        {showComm.length > 0 ? (
+          showComm.map((comment) => (
+            <div className="commentCard" key={comment._id}>
+              <h3 className="commentUser">{comment.userName}</h3>
+              <p className="commentMessage">{comment.message}</p>
+            </div>
+          ))
+        ) : (
+          <div className="noComments">
+            No opinions yet. Be the first to share your thoughts!
+          </div>
+        )}
+      </div>
+
+      {/* Add Comment Form */}
+      <div className="commentFormCard">
+        <h2 className="formHeading">Share Your Opinion</h2>
+
+        <form className="commentForm" onSubmit={commHandler}>
+          <div className="commentField">
+            <label>Username</label>
+            <input
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              placeholder="Enter your username"
+            />
+          </div>
+
+          <div className="commentField">
+            <label>Your Opinion</label>
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Share your thoughts..."
+              required
+            />
+          </div>
+
+          <button className="postCommentButton" type="submit">
+            Post Comment
+          </button>
+        </form>
+      </div>
+
     </div>
+  </div>
   )
 }
 
